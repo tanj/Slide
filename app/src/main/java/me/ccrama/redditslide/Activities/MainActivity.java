@@ -1946,8 +1946,8 @@ public class MainActivity extends BaseActivity
             toggleNSFW.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SettingValues.showNSFWContent = isChecked;
-                    SettingValues.prefs.edit().putBoolean(SettingValues.PREF_SHOW_NSFW_CONTENT, isChecked).apply();
+                    SettingValues.showNSFWContent = false;
+                    SettingValues.prefs.edit().putBoolean(SettingValues.PREF_SHOW_NSFW_CONTENT, false).apply();
                     reloadSubs();
                 }
             });

@@ -34,28 +34,19 @@ public class SettingsRedditFragment {
 //* NSFW Content */
         wantToSeeNsfwSwitch.setChecked(SettingValues.showNSFWContent);
         wantToSeeNsfwSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            SettingValues.showNSFWContent = isChecked;
+            SettingValues.showNSFWContent = false;
             SettingsActivity.changed = true;
 
-            if (isChecked) {
-                hideAllNsfwSwitch.setEnabled(true);
-                hideAllNsfwText.setAlpha(1f);
-                hideAllNsfwSwitch.setChecked(SettingValues.getIsNSFWEnabled());
 
-                hideNsfwPrevCollectionsSwitch.setEnabled(true);
-                hideNsfwPrevCollectionsText.setAlpha(1f);
-                hideNsfwPrevCollectionsSwitch.setChecked(SettingValues.hideNSFWCollection);
+            hideAllNsfwSwitch.setChecked(true);
+            hideAllNsfwSwitch.setEnabled(false);
+            hideAllNsfwText.setAlpha(0.25f);
 
-            } else {
-                hideAllNsfwSwitch.setChecked(false);
-                hideAllNsfwSwitch.setEnabled(false);
-                hideAllNsfwText.setAlpha(0.25f);
+            hideNsfwPrevCollectionsSwitch.setChecked(true);
+            hideNsfwPrevCollectionsSwitch.setEnabled(false);
+            hideNsfwPrevCollectionsText.setAlpha(0.25f);
 
-                hideNsfwPrevCollectionsSwitch.setChecked(false);
-                hideNsfwPrevCollectionsSwitch.setEnabled(false);
-                hideNsfwPrevCollectionsText.setAlpha(0.25f);
-            }
-            editSharedBooleanPreference(SettingValues.PREF_SHOW_NSFW_CONTENT, isChecked);
+            editSharedBooleanPreference(SettingValues.PREF_SHOW_NSFW_CONTENT, false);
         });
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
